@@ -14,6 +14,7 @@ import {
   Search,
   AlertCircle
 } from "lucide-react";
+import Image from "next/image";
 import { getScans, clearScans, deleteScan, ScanHistory } from "@/lib/localStorage";
 import { diseases, Disease } from "@/lib/diseases";
 import { toast } from "@/components/ui/Toast";
@@ -121,7 +122,7 @@ export default function HistoryPage() {
                 className="glass-card rounded-3xl overflow-hidden cursor-pointer group"
               >
                 <div className="aspect-[4/3] relative">
-                  <img src={scan.imageDataUrl} alt={scan.diseaseName} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <Image src={scan.imageDataUrl} alt={scan.diseaseName} fill className="object-cover transition-transform duration-500 group-hover:scale-105" unoptimized />
                   <div className="absolute top-4 right-4 px-3 py-1 glass rounded-full text-[10px] font-bold uppercase tracking-widest text-white">
                     {new Date(scan.timestamp).toLocaleDateString()}
                   </div>
@@ -182,8 +183,8 @@ export default function HistoryPage() {
 
               <div className="overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                  <div className="h-64 md:h-full">
-                    <img src={selectedScan.imageDataUrl} alt={selectedScan.diseaseName} className="w-full h-full object-cover" />
+                  <div className="h-64 md:h-full relative">
+                    <Image src={selectedScan.imageDataUrl} alt={selectedScan.diseaseName} fill className="object-cover" unoptimized />
                   </div>
                   <div className="p-8 md:p-12 flex flex-col gap-8">
                     <div>

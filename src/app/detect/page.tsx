@@ -18,6 +18,7 @@ import {
   ChevronRight,
   ClipboardCheck
 } from "lucide-react";
+import Image from "next/image";
 import { diseases, Disease } from "@/lib/diseases";
 import { saveScan } from "@/lib/localStorage";
 import { toast } from "@/components/ui/Toast";
@@ -172,7 +173,7 @@ export default function DetectPage() {
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                   className="relative w-full h-full"
                 >
-                  <img src={image} alt="Crop preview" className="w-full h-full object-cover" />
+                  <Image src={image} alt="Crop preview" fill className="object-cover" unoptimized />
                   {isAnalyzing && <div className="scan-line" />}
                   {!isAnalyzing && !result && (
                     <button 
