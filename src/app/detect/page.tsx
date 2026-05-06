@@ -292,17 +292,17 @@ export default function DetectPage() {
                 <div className="glass-card p-8 rounded-[2.5rem]">
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h2 className="text-3xl font-bold text-white mb-2">{result.disease.name}</h2>
+                      <h2 className="text-3xl font-bold text-white mb-2">{result?.disease.name}</h2>
                       <div className="flex items-center gap-3">
-                        <span className="text-accent font-mono text-lg">{result.confidence}% Confidence</span>
+                        <span className="text-accent font-mono text-lg">{result?.confidence}% Confidence</span>
                         <span className={cn(
                           "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider",
-                          result.disease.severity === "Low" ? "bg-green-500/10 text-green-500" :
-                          result.disease.severity === "Medium" ? "bg-amber-500/10 text-amber-500" :
-                          result.disease.severity === "High" ? "bg-orange-500/10 text-orange-500" :
+                          result?.disease.severity === "Low" ? "bg-green-500/10 text-green-500" :
+                          result?.disease.severity === "Medium" ? "bg-amber-500/10 text-amber-500" :
+                          result?.disease.severity === "High" ? "bg-orange-500/10 text-orange-500" :
                           "bg-red-500/10 text-red-500"
                         )}>
-                          {result.disease.severity} Severity
+                          {result?.disease.severity} Severity
                         </span>
                       </div>
                     </div>
@@ -312,7 +312,7 @@ export default function DetectPage() {
                     <div>
                       <h4 className="text-xs font-bold text-muted uppercase tracking-widest mb-3">Affected Crops</h4>
                       <div className="flex flex-wrap gap-2">
-                        {result.disease.affectedCrops.map(crop => (
+                        {result?.disease.affectedCrops.map(crop => (
                           <span key={crop} className="px-4 py-1.5 bg-border/50 text-white rounded-full text-sm">
                             {crop}
                           </span>
@@ -323,7 +323,7 @@ export default function DetectPage() {
                     <div>
                       <h4 className="text-xs font-bold text-muted uppercase tracking-widest mb-3">Key Symptoms</h4>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {result.disease.symptoms.map((symptom, i) => (
+                        {result?.disease.symptoms.map((symptom, i) => (
                           <li key={i} className="flex items-center gap-2 text-sm text-muted">
                             <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                             {symptom}
@@ -349,7 +349,7 @@ export default function DetectPage() {
                   </div>
                   
                   <div className="space-y-4">
-                    {result.disease.treatments.map((step, i) => (
+                    {result?.disease.treatments.map((step, i) => (
                       <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-border/30 group/step cursor-pointer hover:bg-border/50 transition-colors">
                         <div className="relative flex items-center justify-center shrink-0 mt-1">
                           <div className="w-5 h-5 border-2 border-accent/30 rounded group-hover/step:border-accent transition-colors" />
@@ -366,7 +366,7 @@ export default function DetectPage() {
                       <div className="w-2 h-2 rounded-full bg-accent animate-ping" />
                       <span className="text-muted">Estimated Recovery</span>
                     </div>
-                    <span className="text-accent font-bold">{result.disease.recovery}</span>
+                    <span className="text-accent font-bold">{result?.disease.recovery}</span>
                   </div>
                 </div>
 
@@ -376,7 +376,7 @@ export default function DetectPage() {
                     <ShieldCheck className="text-accent" /> Prevention Tips
                   </h3>
                   <ul className="space-y-3">
-                    {result.disease.prevention.map((tip, i) => (
+                    {result?.disease.prevention.map((tip, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-muted">
                         <Info size={16} className="mt-1 shrink-0 text-accent" />
                         {tip}
@@ -389,7 +389,7 @@ export default function DetectPage() {
                 <div className="glass-card p-8 rounded-[2.5rem]">
                   <h3 className="text-xl font-bold text-white mb-6">Nearby Suppliers</h3>
                   <div className="space-y-4">
-                    {result.disease.suppliers.map((supplier, i) => (
+                    {result?.disease.suppliers.map((supplier, i) => (
                       <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-border/20">
                         <div>
                           <p className="text-white font-bold">{supplier.name}</p>
